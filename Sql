@@ -306,3 +306,28 @@ values (5, 'ha5@com');
 
 insert into customer_email
 values (6, 'ha665@com');
+
+create table Loans_availed_by_customers(
+C_id number (20) references Customer(C_id),
+Loan_id number(20) references Loan(Loan_id)
+
+);
+
+
+insert into loans_availed_by_customers
+values (1,1);
+
+insert into loans_availed_by_customers
+values (2,1);
+
+insert into loans_availed_by_customers
+values (3,1);
+
+insert into loans_availed_by_customers
+values (4,1);
+
+insert into loans_availed_by_customers
+values (5,1);
+
+insert into loans_availed_by_customers
+values (1,2);
