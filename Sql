@@ -219,3 +219,90 @@ add (Br_id number(20) references Branch(Br_id));
 
 alter table Bank
 add (Headquarter_br_id number (20) references Branch(Br_id));
+
+create table Customer(
+C_id number(20) primary key,
+SSN number(20) unique not null,
+F_name varchar(20),
+Mid_name varchar(20),
+L_name varchar(20),
+DOB Date,
+Street varchar(20),
+Building_no number(20),
+unit_no number(20)
+);
+
+
+insert into customer
+values (1, 12, 'Amna', 'Ahmed', 'Ahmed' , '20-JAN-2003' , 'Abbasya' , 2 , 24);
+
+insert into customer
+values (2, 13, 'James', 'Wiliam', 'Ahmed' , '20-JAN-2000' , 'Abbasya' , 73 , 20);
+
+insert into customer
+values (3, 14, 'Fatma', 'Gamal', 'Ahmed' , '20-May-1999' , 'Liwa' , 26 , 2);
+
+insert into customer
+values (4, 15, 'Ahmed', 'Salem', 'Ahmed' , '20-JAN-2003' , 'Dubai' , 52 , 30);
+
+insert into customer
+values (5, 16, 'Mona', 'Ahmed', 'Maher' , '20-JAN-2003' , 'Abbasya' , 5 , 24);
+
+insert into customer
+values (6, 17, 'Laila', 'Ahmed', 'Hany' , '20-JAN-1998' , 'Hafr AL-baten' , 4 , 24);
+
+
+
+create table Customer_Phone(
+C_id number(20) references customer (C_id),
+Countery_code number(20),
+C_Number number(20)
+);
+
+insert into customer_phone
+values (1 , 20 , 123456789);
+
+insert into customer_phone
+values (2 , 20 , 123466689);
+
+insert into customer_phone
+values (2 , 20 , 123466889);
+
+insert into customer_phone
+values (3 , 20 , 123466799);
+
+insert into customer_phone
+values (4 , 20 , 113466789);
+
+insert into customer_phone
+values (5 , 20 , 223466789);
+
+insert into customer_phone
+values (6 , 20 , 123465689);
+
+
+create table Customer_Email(
+C_id number(20) references customer (C_id),
+C_Email Varchar(20)
+);
+
+insert into customer_email
+values (1, 'mona@com');
+
+insert into customer_email
+values (1, 'Amna@com');
+
+insert into customer_email
+values (2, 'FATMA@com');
+
+insert into customer_email
+values (3, 'james@com');
+
+insert into customer_email
+values (4, 'ha@com');
+
+insert into customer_email
+values (5, 'ha5@com');
+
+insert into customer_email
+values (6, 'ha665@com');
