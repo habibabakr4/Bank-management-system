@@ -1,0 +1,221 @@
+create table departments(
+  D_id number(20) primary key,
+  d_name varchar (20)
+);
+
+insert into departments
+values (1,'finance');
+
+insert into departments
+values (2,'hr');
+
+insert into departments
+values (3,'it');
+
+insert into departments
+values (4,'finance');
+
+insert into departments
+values (5,'hr');
+
+create table bank(
+Bank_id number(20) primary key,
+Bank_name varchar(20) 
+)
+
+insert into bank
+values (1,'cibEgypt');
+
+insert into bank
+values (2,'cibQatar');
+
+insert into bank
+values (3,'cibUSA');
+
+insert into bank
+values (4,'cibUK');
+
+insert into bank
+values (5,'cibUAE');
+
+create table Employee(
+  E_id number (20) primary key,
+  SSN number (20) unique not null,
+  F_name varchar (20), 
+  Mid_name varchar (20), 
+  L_name varchar (20),
+  DOB date , 
+  Salary number (20), 
+  Street varchar (20),
+  Building_no number (20),
+  Unit_no number (20)
+);
+
+insert into Employee
+values (1,12,'Habiba','Alaa','Eldin','17-Dec-2002',2000,'no',9,9);
+
+insert into Employee
+values (2,13,'Habiba','Bakr','Ahmed','5-Dec-2002',2000,'no',2,2);
+
+insert into Employee
+values (3,14,'Rana','Waheed','Eldin','1-Dec-2003',2000,'no',3,3);
+
+insert into Employee
+values (4,15,'khaira','Moh','Ahmed','5-Dec-2005',2000,'no',1,1);
+
+insert into Employee
+values (5,16,'Wessal','Salah','Moh','2-Dec-2002',2000,'no',5,5);
+
+
+create table Branch (
+ Br_id number (20) primary key,
+ Branch_name varchar (20),
+ Country varchar(20),
+ city varchar (20),
+ street varchar (20),
+ street_no number (20)
+);
+
+insert into Branch 
+values (1,'CibCairo','Egypt','Cairo','elnozha',12);
+
+insert into Branch 
+values (2,'CibAlex','Egypt','Alex','Miami',12);
+
+insert into Branch 
+values (3,'CibDoha','Qatar','Doha','Tamym',13);
+
+insert into Branch 
+values (4,'CibUSA','USA','New York','Hollymood',15);
+
+insert into Branch 
+values (5,'CibUK','UK','London','Big Ban',16);
+
+create table E_mail(
+E_id number (20) references Employee (E_id),
+E_mail varchar(20)
+);
+
+insert into E_mail
+values (1,'hh@com');
+
+insert into E_mail
+values (1,'h2@com');
+
+insert into E_mail
+values (2,'weee@com');
+
+insert into E_mail
+values (2,'wooh@com');
+
+insert into E_mail
+values (3,'rrr@com');
+
+insert into E_mail
+values (4,'kkk@com');
+
+insert into E_mail
+values (5,'aaa@com');
+
+create table Loan(
+Loan_id number(20) primary key,
+Loan_type varchar(20),
+Br_id  number(20) references Branch (Br_id)
+);
+insert into loan
+values (1,'Personal',1);
+
+insert into loan
+values (2,'Business',2);
+
+insert into loan
+values (3,'Business',1);
+
+insert into loan
+values (4,'Personal',3);
+
+insert into loan
+values (5,'Personal',4);
+
+insert into loan
+values (6,'Business',5);
+
+create table Payment(
+Loan_id number (20) references Loan(Loan_id),
+Payment_no number(20) primary key,
+Amount number (20) ,
+Type varchar(20)
+);
+
+insert into Payment
+values (1,1,20,'Cash');
+
+insert into Payment
+values (2,2,10,'Visa');
+
+insert into Payment
+values (3,3,15,'Cash');
+
+insert into Payment
+values (4,4,20,'Visa');
+
+insert into Payment
+values (5,5,20,'Cash');
+
+insert into Payment
+values (6,6,10,'Visa');
+
+create table Account(
+Accont_no number (20) primary key,
+A_type varchar(20),
+Balance number(30),
+Branch_id number(20) references Branch(Br_id)
+
+);
+
+
+insert into Account
+values(1,'Personal',20,1);
+
+insert into Account
+values(2,'Business',20,2);
+
+insert into Account
+values(3,'Personal',20,3);
+
+insert into Account
+values(4,'Business',20,4);
+
+insert into Account
+values(5,'Personal',20,5);
+
+create table E_Phone(
+E_id number (20) references Employee(E_id),
+Country_code number(20),
+P_num number (20)
+);
+
+insert into E_Phone
+values (1,02,0123456789);
+
+insert into E_Phone
+values (2,099,9876543210);
+
+insert into E_Phone
+values (3,05,0124861012);
+
+insert into E_Phone
+values (4,02,2170125902);
+
+insert into E_Phone
+values (5,06,0511031712);
+
+
+alter table Employee
+add (D_id number(20) references DEPARTMENTS(D_id));
+
+alter table Employee
+add (Br_id number(20) references Branch(Br_id));
+
+alter table Bank
+add (Headquarter_br_id number (20) references Branch(Br_id));
