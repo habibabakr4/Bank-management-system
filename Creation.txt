@@ -2,9 +2,15 @@ CREATE TABLE Departments(
 D_id NUMBER(20) PRIMARY KEY,
 D_name VARCHAR(20));
 
+CREATE TABLE Bank(
+Bank_id NUMBER(20) PRIMARY KEY,
+Bank_name VARCHAR(20) ,
+Headquarter_br_id NUMBER(20)
+);
 
 CREATE TABLE Branch (
  Br_id NUMBER(20) PRIMARY KEY,
+ Bank_id NUMBER(20) NOT NULL REFERENCES Bank(Bank_id), 
  Branch_name VARCHAR(20),
  Country VARCHAR(20),
  City VARCHAR(20),
@@ -12,18 +18,8 @@ CREATE TABLE Branch (
  Street_no NUMBER(20)
 );
 
-
-CREATE TABLE Bank(
-Bank_id NUMBER(20) PRIMARY KEY,
-Bank_name VARCHAR(20) ,
-Headquarter_br_id NUMBER(20) REFERENCES Branch(Br_id)
-);
-
-
-
-
-
-
+ALTER TABLE Bank
+ADD CONSTRAINT hq_fk FOREIGN KEY(Headquarter_br_id) REFERENCES Branch(Br_id);
 
 CREATE TABLE Employee(
   E_id NUMBER(20) PRIMARY KEY,
@@ -31,12 +27,13 @@ CREATE TABLE Employee(
   F_name VARCHAR(20), 
   Mid_name VARCHAR(20), 
   L_name VARCHAR(20),
-  DOB date , 
+  DOB date, 
+  Gender VARCHAR(1),
   Salary NUMBER(20), 
   Street VARCHAR(20),
   Building_no NUMBER(20),
   Unit_no NUMBER(20),
-  D_id NUMBER(20) REFERENCES Departments.D_id,
+  D_id NUMBER(20) REFERENCES Departments(D_id),
   Br_id NUMBER(20) REFERENCES Branch(Br_id)
 );
 
@@ -46,19 +43,16 @@ Country_code NUMBER(20),
 P_num NUMBER(20)
 );
 
-
 CREATE TABLE E_email(
 E_id NUMBER(20) REFERENCES Employee (E_id),
 E_mail VARCHAR(20)
 );
-
 
 CREATE TABLE Loan(
 Loan_id NUMBER(20) PRIMARY KEY,
 Loan_type VARCHAR(20),
 Br_id  NUMBER(20) REFERENCES Branch (Br_id)
 );
-
 
 CREATE TABLE Payment(
 Loan_id NUMBER(20) REFERENCES Loan(Loan_id),
@@ -67,10 +61,6 @@ Amount NUMBER(20) ,
 Type VARCHAR(20)
 );
 
-
-
-
-
 CREATE TABLE Customer(
 C_id NUMBER(20) PRIMARY KEY,
 SSN NUMBER(20) UNIQUE NOT NULL,
@@ -78,13 +68,11 @@ F_name VARCHAR(20),
 Mid_name VARCHAR(20),
 L_name VARCHAR(20),
 DOB Date,
+Gender VARCHAR(1),
 Street VARCHAR(20),
 Building_no NUMBER(20),
-unit_no NUMBER(20)
+Unit_no NUMBER(20)
 );
-
-
-
 
 CREATE TABLE Account(
 Accont_no NUMBER(20) PRIMARY KEY,
@@ -92,16 +80,13 @@ A_type VARCHAR(20),
 Balance NUMBER(30),
 Branch_id NUMBER(20) REFERENCES Branch(Br_id),
 C_id NUMBER(20) REFERENCES customer(C_id) 
-
 );
-
 
 CREATE TABLE C_Phone(
 C_id NUMBER(20) REFERENCES customer (C_id),
 Countery_code NUMBER(20),
 C_NUMBER NUMBER(20)
 );
-
 
 CREATE TABLE C_Email(
 C_id NUMBER(20) REFERENCES customer (C_id),
@@ -112,10 +97,3 @@ CREATE TABLE Loans_availed_by_customers(
 C_id NUMBER(20) REFERENCES Customer(C_id),
 Loan_id NUMBER(20) REFERENCES Loan(Loan_id)
 );
-
-
-
-
-
-
-

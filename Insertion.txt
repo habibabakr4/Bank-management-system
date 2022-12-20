@@ -48,15 +48,15 @@ SET Headquarter_br_id=5
 WHERE Bank_id = 5;
 
 INSERT INTO Employee
-VALUES (1,12,'Habiba','Alaa','Eldin','17-Dec-2002',2000,'Street x',9,9,1,1);
+VALUES (1,12,'Habiba','Alaa','Eldin','17-Dec-2002','F',2000,'Street x',9,9,1,1);
 INSERT INTO Employee
-VALUES (2,13,'Habiba','Bakr','Ahmed','5-Dec-2002',2000,'Street y',2,2,2,2);
+VALUES (2,13,'Habiba','Bakr','Ahmed','5-Dec-2002','F',2000,'Street y',2,2,2,2);
 INSERT INTO Employee
-VALUES (3,14,'Rana','Waheed','Tamam','1-Dec-2003',2000,'Street x',3,3,3,3);
+VALUES (3,14,'Rana','Waheed','Tamam','1-Dec-2003','F',2000,'Street x',3,3,3,3);
 INSERT INTO Employee
-VALUES (4,15,'Khaira','Mohammed','Ahmed','5-Dec-2005',2000,'Street y',1,1,1,1);
+VALUES (4,15,'Khaira','Mohammed','Ahmed','5-Dec-2005','F',2000,'Street y',1,1,1,1);
 INSERT INTO Employee
-VALUES (5,16,'Wessal','Salah','Mohammed','2-Dec-2002',2000,'Street z',5,5,4,4);
+VALUES (5,16,'Wessal','Salah','Mohammed','2-Dec-2002','F',2000,'Street z',5,5,4,4);
 
 INSERT INTO E_email
 VALUES (1,'h.alaa@bnk.com');
@@ -86,17 +86,17 @@ VALUES (5,06,0511031712);
 
 
 INSERT INTO Customer
-VALUES (1, 12, 'Amna', 'Ahmed', 'Ahmed' , '20-JAN-2003' , 'XYZ Street' , 2 , 24);
+VALUES (1, 12, 'Amna', 'Ahmed', 'Ahmed' , '20-JAN-2003' ,'F', 'XYZ Street' , 2 , 24);
 INSERT INTO customer
-VALUES (2, 13, 'James', 'Wiliam', 'Ahmed' , '20-JAN-2000' , 'Park Street' , 73 , 20);
+VALUES (2, 13, 'James', 'Wiliam', 'Ahmed' , '20-JAN-2000' ,'M', 'Park Street' , 73 , 20);
 INSERT INTO customer
-VALUES (3, 14, 'Fatma', 'Gamal', 'Ahmed' , '20-May-1999' , 'Baker Street' , 26 , 2);
+VALUES (3, 14, 'Fatma', 'Gamal', 'Ahmed' , '20-May-1999' ,'F', 'Baker Street' , 26 , 2);
 INSERT INTO customer
-VALUES (4, 15, 'Ahmed', 'Salem', 'Ahmed' , '20-JAN-2003' , '75 Street' , 52 , 30);
+VALUES (4, 15, 'Ahmed', 'Salem', 'Ahmed' , '20-JAN-2003' ,'M', '75 Street' , 52 , 30);
 INSERT INTO customer
-VALUES (5, 16, 'Mona', 'Ahmed', 'Maher' , '20-JAN-2003' , 'ABC Street' , 5 , 24);
+VALUES (5, 16, 'Mona', 'Ahmed', 'Maher' , '20-JAN-2003' ,'F', 'ABC Street' , 5 , 24);
 INSERT INTO customer
-VALUES (6, 17, 'Laila', 'Ahmed', 'Hany' , '20-JAN-1998' , '8th Avenue Street' , 4 , 24);
+VALUES (6, 17, 'Laila', 'Ahmed', 'Hany' , '20-JAN-1998' ,'F', '8th Avenue Street' , 4 , 24);
 
 INSERT INTO C_email
 VALUES (1, 'mona@mail.com');
