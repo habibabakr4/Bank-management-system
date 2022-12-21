@@ -161,6 +161,9 @@ INSERT INTO Employee
 VALUES (4,15,'Khaira','Mohammed','Ahmed','5-Dec-2005','F',2000,'Street y',1,1,1,1);
 INSERT INTO Employee
 VALUES (5,16,'Wessal','Salah','Mohammed','2-Dec-2002','F',2000,'Street z',5,5,4,4);
+INSERT INTO Employee
+VALUES (6,17,'Rana','Wahid','Tammam','1-Dec-2003','F',3000,'Street x',6,6,3,3);
+
 
 INSERT INTO E_email
 VALUES (1,'h.alaa@bnk.com');
@@ -243,6 +246,8 @@ INSERT INTO Account
 VALUES(4,'Business',20,4,4);
 INSERT INTO Account
 VALUES(5,'Personal',20,5,5);
+INSERT INTO Account
+VALUES(7,'Business',20,5,5);
 
 
 INSERT INTO Loan
@@ -285,3 +290,4 @@ INSERT INTO loans_availed_by_customers
 VALUES (1,2);
 
 COMMIT;
+
